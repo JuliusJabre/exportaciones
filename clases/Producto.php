@@ -67,6 +67,10 @@ class Producto{
 			$querydel->bindParam(':id',$id);
 			
 			$valaux=$querydel->execute();
+                        
+                        $oTransac=new Transaccion($this->nidusuario,"Eliminado desde la clase","Producto","D");
+                        
+                        $oTransac->Ingreso();
 	
 		return $valaux;
 	}
